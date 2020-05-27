@@ -7,7 +7,7 @@ class Flutterplugintest {
       const MethodChannel('flutterplugintest');
 
   static Future<String> get platformVersion async {
-    print("嘻嘻嘻，这是插件 Flutter 端发出的 log");
+    print("嘻嘻嘻，这是插件 Flutter 端发出的 log22222222");
     final String version = await _channel.invokeMethod('getPlatformVersion');
     return version;
   }
