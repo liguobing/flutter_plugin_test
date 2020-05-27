@@ -46,7 +46,6 @@ public class FlutterplugintestPlugin implements FlutterPlugin, MethodCallHandler
   @Override
   public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
     if (call.method.equals("getPlatformVersion")) {
-      Toast.makeText(context,"嘻嘻嘻",Toast.LENGTH_SHORT).show();
       result.success("Android " + android.os.Build.VERSION.RELEASE);
     } else {
       result.notImplemented();
