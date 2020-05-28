@@ -24,9 +24,9 @@ public class FlutterplugintestPlugin implements FlutterPlugin, MethodCallHandler
     /// when the Flutter Engine is detached from the Activity
     private MethodChannel channel;
 
-    private Context context;
+    private static Context context;
 
-    private String resultString = "";
+    private static String resultString = "";
 
     @Override
     public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
@@ -52,6 +52,12 @@ public class FlutterplugintestPlugin implements FlutterPlugin, MethodCallHandler
     public static void registerWith(Registrar registrar) {
         final MethodChannel channel = new MethodChannel(registrar.messenger(), "flutterplugintest");
         channel.setMethodCallHandler(new FlutterplugintestPlugin());
+        context = registrar.context();
+        if (context == null) {
+            resultString = "[IsNull]";
+        } else {
+            resultString = "[NotNull]";
+        }
     }
 
     @Override
